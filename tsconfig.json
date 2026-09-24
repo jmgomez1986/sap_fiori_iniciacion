@@ -2,31 +2,19 @@
   "compilerOptions": {
     "target": "es2022",
     "module": "es2022",
+    "moduleResolution": "bundler",
     "skipLibCheck": true,
     "allowJs": true,
     "strict": true,
     "strictPropertyInitialization": false,
-    "moduleResolution": "node",
     "rootDir": "./webapp",
     "outDir": "./dist",
-    "baseUrl": "./",
     "paths": {
-      "logaligroup/invoices/*": [
-        "./webapp/*"
-      ],
-      "unit/*": [
-        "./webapp/test/unit/*"
-      ],
-      "integration/*": [
-        "./webapp/test/integration/*"
-      ]
+      "logaligroup/invoices/*": ["./webapp/*"],
+      "unit/*": ["./webapp/test/unit/*"],
+      "integration/*": ["./webapp/test/integration/*"]
     },
-    "typeRoots": [
-      "./node_modules/@types",
-      "./node_modules/@sapui5/types"
-    ]
+    "types": ["@sapui5/types", "qunit"]
   },
-  "include": [
-    "./webapp/**/*"
-  ]
+  "include": ["./webapp/**/*"]
 }
