@@ -66,6 +66,37 @@
                     class="sapUiSmallMarginEnd"
                 />
             </FlexBox>
+
+            <Panel id="panelList">
+                <List
+                    id="invoicesList"
+                    headerText="{i18n>invoicesHeaderList}"
+                    class="sapUiResponsiveMagin"
+                    width="auto"
+                    items="{/Invoices}"
+                    growing="true"
+                    growingThreshold="10"
+                    growingScrollToLoad="false" 
+                >
+                    <items>
+                        <ObjectListItem
+                            id="itemInvoice"
+                            title="{ShipName} - {Country}"
+                            number="{
+                                    parts: [ {path: 'ExtendedPrice'},
+                                             {path: 'selectionScreen>/currency'}
+                                           ],
+                                    type: 'sap.ui.model.type.Currency',
+                                    formatOptions: {
+                                        showMeasure: false
+                                    }
+                                }"
+                            numberUnit="{selectionScreen>/currency}"
+                            numberState="{= ${ExtendedPrice} > 100 ? 'Success' : 'Warning'}"
+                        />
+                    </items>
+                </List>
+            </Panel>
         </Panel>
     </Page>
 </mvc:View>

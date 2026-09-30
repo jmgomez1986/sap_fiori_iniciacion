@@ -41,6 +41,9 @@ server:
       afterMiddleware: compression
       configuration:
         ignoreCertErrors: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
+        backend:
+        - path: /V3
+          url: http://northwind.dest
 builder:
   resources:
     excludes:
